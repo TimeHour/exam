@@ -1,6 +1,5 @@
 <?php
 
-
 use App\Http\Controllers\ArticleController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\PublicController;

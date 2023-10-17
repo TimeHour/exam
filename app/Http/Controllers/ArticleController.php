@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Article;
 use App\Http\Requests\StoreArticleRequest;
 use App\Http\Requests\UpdateArticleRequest;
+use Illuminate\Support\Facades\Storage;
 
 class ArticleController extends Controller
 {
@@ -40,9 +41,9 @@ class ArticleController extends Controller
     public function store(StoreArticleRequest $request)
     {
 
-        dd($request->file('image')->store('/public'));
         $article = new Article($request->validated());
-
+        $file = $request->file('image')->store('/public');
+        $article->image = Storage::url($file);
         $article->save();
         return redirect()->route('articles.index');
     }

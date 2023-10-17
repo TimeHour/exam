@@ -1,9 +1,4 @@
-@extends('partials.layout')
-
-@section('content')
-    <div class="container mx-auto w-1/2">
-        <div class="card bg-base-100 shadow-xl">
-            <div class="card-body">
+<x-guest-layout>
     <!-- Session Status -->
     <x-auth-session-status class="mb-4" :status="session('status')" />
 
@@ -11,21 +6,17 @@
         @csrf
 
         <!-- Email Address -->
-        <div class="form-control w-full">
-            <label class="label" for="email">
-                <span class="label-text">{{__('Email')}}</span>
-            </label>
-
-            <x-text-input id="email" class="input input-bordered w-full" type="email" name="email" :value="old('email')" required autofocus autocomplete="username" />
+        <div>
+            <x-input-label for="email" :value="__('Email')" />
+            <x-text-input id="email" class="block mt-1 w-full" type="email" name="email" :value="old('email')" required autofocus autocomplete="username" />
             <x-input-error :messages="$errors->get('email')" class="mt-2" />
         </div>
 
         <!-- Password -->
-        <div class="mt-4 form-control w-full">
-            <label class="label" for="password">
-                <span class="label-text">{{__('Password')}}</span>
-            </label>
-            <x-text-input id="password" class="input input-bordered w-full"
+        <div class="mt-4">
+            <x-input-label for="password" :value="__('Password')" />
+
+            <x-text-input id="password" class="block mt-1 w-full"
                             type="password"
                             name="password"
                             required autocomplete="current-password" />
@@ -53,7 +44,4 @@
             </x-primary-button>
         </div>
     </form>
-            </div>
-        </div>
-    </div>
-@endsection
+</x-guest-layout>
