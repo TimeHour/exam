@@ -12,6 +12,10 @@ class PublicController extends Controller
         return view('welcome', compact('articles'));
     }
 
+    public function article(Article $article){
+        return view('article', compact('article'));
+    }
+
     public function about(){
         return view('about');
     }

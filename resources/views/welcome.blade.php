@@ -14,10 +14,17 @@
                             <h2 class="card-title">{{ $article->title }}</h2>
                             <p>{{ $article->snippet }}</p>
                             <div class="stat">
+                                <div class="stat-desc">{{ $article->user->name }}</div>
+                                <div class="stat-desc"><b>Comments: </b>{{ $article->comments()->count() }}</div>
+                                <div class="stat-desc"><b>Likes: </b>{{ $article->likes()->count() }}</div>
                                 <div class="stat-desc">{{ $article->created_at->diffForHumans() }}</div>
                             </div>
                             <div class="card-actions justify-end">
-                                <button class="btn btn-primary">Buy Now</button>
+                                <form action="{{route('like', ['article' => $article])}}" method="POST">
+                                    @csrf
+                                    <input type="submit" class="btn btn-primary" value="Like">
+                                </form>
+                                <a href="{{route('public.article', ['article' => $article])}}" class="btn btn-primary">Read More</a>
                             </div>
                         </div>
                     </div>

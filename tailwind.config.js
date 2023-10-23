@@ -7,9 +7,12 @@ export default {
         "./resources/**/*.js",
         "./resources/**/*.vue",
     ],
-  theme: {
-    extend: {},
-  },
+    theme: {
+        extend: {},
+    },
+    daisyui: {
+        themes: ["synthwave","luxury","coffee"],
+    },
     plugins: [forms, require("daisyui")],
 }
 
