@@ -30,12 +30,28 @@
                             </label>
                         @enderror
                     </div>
+                    <div class="form-control w-full max-w-xs">
+                        <label class="label">
+                            <span class="label-text-alt">Tags</span>
+                        </label>
+                        <select class="select select-bordered" multiple name="tags[]">
+                            @foreach($tags as $tag)
+                            <option value="{{$tag->id}}">{{$tag->name}}</option>
+                            @endforeach
+                        </select>
+                        @error('tags.*')
+                        <label class="label">
+                            <span class="label-text-alt text-error">{{$message}}</span>
+                        </label>
+                        @enderror
+
+                    </div>
                     <div class="form-control w-full">
                         <label class="label">
-                            <span class="label-text">Image</span>
+                            <span class="label-text">Images</span>
                         </label>
-                        <input name="image" type="file" class="file-input input-bordered w-full @error('image') input-error @enderror"/>
-                        @error('image')
+                        <input name="images[]" type="file" multiple class="file-input input-bordered w-full @error('image.*') input-error @enderror"/>
+                        @error('image.*')
                             <label class="label">
                                 <span class="label-text-alt text-error">{{$message}}</span>
                             </label>
