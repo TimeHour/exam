@@ -2,11 +2,12 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Article;
 use App\Models\Tag;
 use App\Http\Requests\StoreTagRequest;
 use App\Http\Requests\UpdateTagRequest;
 
-class TagController extends Controller
+class UserController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -63,4 +64,8 @@ class TagController extends Controller
     {
         //
     }
+
+
+
 }
+

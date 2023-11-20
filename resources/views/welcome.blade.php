@@ -6,7 +6,7 @@
         <div class="flex flex-row flex-wrap">
             @foreach($articles as $article)
                 <div class="basis-1/4 mb-4">
-                    <div class="card mx-3 bg-base-100 shadow-xl h-full">
+                    <div class="card mx-3 bg-base-100 shadow-xl">
                         @if($article->images->count() === 1)
                             <figure><img src="{{$article->image->path}}"/></figure>
                         @elseif($article->images->count()>1)
@@ -22,7 +22,11 @@
                             <h2 class="card-title">{{ $article->title }}</h2>
                             <p>{{ $article->snippet }}</p>
                             <div class="stat">
-                                <div class="stat-desc">{{ $article->user->name }}</div>
+
+                                    <a href="{{route('public.user', ['user' => $article->user])}}">
+                                        <div class="stat-desc">{{ $article->user->name }}</div>
+                                    </a>
+
                                 <div class="stat-desc"><b>Comments: </b>{{ $article->comments()->count() }}</div>
                                 <div class="stat-desc"><b>Likes: </b>{{ $article->likes()->count() }}</div>
                                 <div class="stat-desc">{{ $article->created_at->diffForHumans() }}</div>

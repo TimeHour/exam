@@ -20,6 +20,7 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', [PublicController::class, 'index']);
 Route::get('/about', [PublicController::class, 'about']);
+Route::get('/user/{user}', [PublicController::class, 'user'])->name('public.user');
 Route::get('/article/{article}', [PublicController::class, 'article'])->name('public.article');
 Route::get('/tag/{tag}', [PublicController::class, 'tag'])->name('public.tag');
 
