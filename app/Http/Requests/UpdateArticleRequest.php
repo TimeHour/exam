@@ -24,6 +24,11 @@ class UpdateArticleRequest extends FormRequest
         return [
             'title' => 'required',
             'body' => 'required',
+            'Hind' => '',
+            'vegan' => '',
+            'gluteeni_vaba' => '',
+            'taimetoitlasele' => '',
+            'teravus' => '',
         ];
     }
 }

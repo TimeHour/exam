@@ -16,7 +16,7 @@ class ImageSeeder extends Seeder
     {
         $articles = Article::all();
         foreach ($articles as $article){
-            Image::factory(rand(0,5))->create(['article_id' => $article->id]);
+            Image::factory()->create(['article_id' => $article->id]);
         }
     }
 }

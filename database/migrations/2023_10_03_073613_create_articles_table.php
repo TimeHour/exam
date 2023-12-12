@@ -16,6 +16,15 @@ return new class extends Migration
             $table->id();
             $table->string('title');
             $table->text('body');
+            $table->string('Hind');
+            $table->string('vegan');
+            $table->string('gluteeni_vaba');
+            $table->string('taimetoitlasele');
+            $table->string('teravus');
+
+
+
+
             // $table->unsignedBigInteger('user_id');
             // $table->foreign('user_id')->references('id')->on('users')->cascadeOnDelete();
             $table->foreignIdFor(User::class)->constrained()->cascadeOnDelete();

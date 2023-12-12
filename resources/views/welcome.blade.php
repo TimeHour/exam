@@ -22,28 +22,33 @@
                             <h2 class="card-title">{{ $article->title }}</h2>
                             <p>{{ $article->snippet }}</p>
                             <div class="stat">
-
-                                    <a href="{{route('public.user', ['user' => $article->user])}}">
+                            <a href="{{route('public.user', ['user' => $article->user])}}">
                                         <div class="stat-desc">{{ $article->user->name }}</div>
                                     </a>
 
-                                <div class="stat-desc"><b>Comments: </b>{{ $article->comments()->count() }}</div>
-                                <div class="stat-desc"><b>Likes: </b>{{ $article->likes()->count() }}</div>
+                                <div class="stat-desc"><b>Price: </b>{{ $article->Hind }}€</div>
+
+                                <div class="stat-desc"><b>Gluten free </b> @if($article->gluteeni_vaba > 0) ✔️ @else ❎ @endif</div>
+
+                                <div class="stat-desc"><b>Vegan </b>@if($article->vegan > 0) ✔️ @else ❎ @endif</div>
+
+                                <div class="stat-desc"><b>Vegetarian </b>@if($article->taimetoitlasele > 0) ✔️ @else ❎ @endif</div>
+
+                                <div class="stat-desc"><b>spicy: </b>
+                                    <div class="rating-gap-1">
+                                        {{str_repeat("🔥",  $article->teravus)}}
+                                    </div>
+                                </div>
+
+
+                                <br>
                                 <div class="stat-desc">{{ $article->created_at->diffForHumans() }}</div>
                                 <div class="stat-desc flex flex-wrap">
-                                    @foreach($article->tags as $tag)
-                                        <a href="{{route('public.tag', ['tag' => $tag])}}">
-                                            <div class="badge badge-accent badge-outline mt-1 mr-1">{{$tag->name}}</div>
-                                        </a>
-                                    @endforeach
+
                                 </div>
                             </div>
                             <div class="card-actions justify-end">
-                                <form action="{{route('like', ['article' => $article])}}" method="POST">
-                                    @csrf
-                                    <input type="submit" class="btn btn-primary"
-                                           value="{{$article->authHasLiked() ? 'Unlike' : 'Like'}}">
-                                </form>
+
                                 <a href="{{route('public.article', ['article' => $article])}}" class="btn btn-primary">Read
                                     More</a>
                             </div>

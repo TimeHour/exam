@@ -37,6 +37,12 @@ class ArticleFactory extends Factory
             'updated_at' => $updated,
             'deleted_at' => $deleted,
             'user_id' => User::inRandomOrder()->first()->id,
+            'Hind' => rand(5,17),
+            'vegan' => rand(0, 1),
+            'gluteeni_vaba' => rand(0,1),
+            'taimetoitlasele' => rand(0,1),
+            'teravus' => rand(0,5),
+
         ];
     }
 }
